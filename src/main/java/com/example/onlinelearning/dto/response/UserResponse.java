@@ -1,18 +1,15 @@
-package com.example.onlinelearning.dto;
+package com.example.onlinelearning.dto.response;
 
+import lombok.Builder;
 import lombok.Data;
 
-/**
- * Used to send safe user data in APIs
- */
-
 @Data
-public class UserDto {
+@Builder
+public class UserResponse {
 
     private Integer id;
     private String name;
     private String email;
     private String role;
-
 
 }
