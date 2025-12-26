@@ -3,6 +3,7 @@ package com.example.onlinelearning.controller;
 import com.example.onlinelearning.dto.request.CreateUserRequest;
 import com.example.onlinelearning.dto.response.UserResponse;
 import com.example.onlinelearning.service.impl.UserServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ public class UserController {
     private final UserServiceImpl userService;
 
     @PostMapping
+    @Operation(summary = "Create a new user")
     public ResponseEntity<UserResponse> CreateUser(@Valid @RequestBody CreateUserRequest userRequest) {
 
         UserResponse response = userService.createUser(userRequest);
