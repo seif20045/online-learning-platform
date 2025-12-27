@@ -27,7 +27,7 @@ public class AuthServiceImpl implements IAuthService {
         User user = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow(
                 () -> new BusinessException("Invalid email or password"));
 
-        if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
+        if (!passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
 
             throw new BusinessException("Invalid email or password");
         }
